@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Checkout SCM') {
             steps {
-                echo 'Checking source code from SCM'
+                echo 'SCM step completed'
             }
         }
 
@@ -16,17 +16,9 @@ pipeline {
 
         stage('Build Report') {
             steps {
-                bat 'echo Build successful > build-report.txt'
+                bat 'echo SCM pipeline build successful > build-report.txt'
+                bat 'type build-report.txt'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully'
-        }
-        failure {
-            echo 'Pipeline failed'
         }
     }
 }
