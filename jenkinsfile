@@ -15,9 +15,6 @@ pipeline {
             }
         }
     }
-<<<<<<< HEAD
-}
-=======
 
     post {
         success {
@@ -28,4 +25,15 @@ pipeline {
         }
     }
 }
->>>>>>> 8b6d4e871574ebf6c3fb5ca72e99bd39d9348602
+pipeline {
+    agent any
+
+    stages {
+        stage('Build Report') {
+            steps {
+                bat 'echo Jenkins pipeline is working > build-report.txt'
+                bat 'type build-report.txt'
+            }
+        }
+    }
+}
