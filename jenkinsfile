@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                echo 'SCM checkout started'
-            }
-        }
-
         stage('Check Files') {
             steps {
                 bat 'dir'
@@ -24,10 +18,10 @@ pipeline {
 
     post {
         success {
-            echo 'Build completed successfully'
+            echo 'Pipeline completed successfully'
         }
         failure {
-            echo 'Build failed'
+            echo 'Pipeline failed'
         }
     }
 }
