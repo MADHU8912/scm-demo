@@ -15,4 +15,17 @@ pipeline {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+
+    post {
+        success {
+            echo 'Pipeline completed successfully'
+        }
+        failure {
+            echo 'Pipeline failed'
+        }
+    }
+}
+>>>>>>> 8b6d4e871574ebf6c3fb5ca72e99bd39d9348602
