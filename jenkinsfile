@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking source code from SCM'
+            }
+        }
+
+        stage('Check Files') {
+            steps {
+                bat 'dir'
+            }
+        }
+
+        stage('Build Report') {
+            steps {
+                bat 'echo Build successful > build-report.txt'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully'
+        }
+        failure {
+            echo 'Pipeline failed'
+        }
+    }
+}
