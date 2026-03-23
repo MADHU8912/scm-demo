@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking source code from SCM'
+                echo 'SCM checkout started'
             }
         }
 
@@ -17,16 +17,17 @@ pipeline {
         stage('Build Report') {
             steps {
                 bat 'echo Build successful > build-report.txt'
+                bat 'type build-report.txt'
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully'
+            echo 'Build completed successfully'
         }
         failure {
-            echo 'Pipeline failed'
+            echo 'Build failed'
         }
     }
 }
